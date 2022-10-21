@@ -43,22 +43,22 @@ class Nodo{
     }
 
     invertir(){
-       let prev = null;
-        let temp = this.primero;
-        let aux = this.primero.sig;
-        while(this.ultimo != null){
-           prev = this.ultimo;
-           this.ultimo = this.ultimo.ant;
+      let temp = this.primero; 
+      let aux = null;
 
-        }
-        if(prev != null){
-          temp = this.ultimo;
-        }
-    }
+      while (temp) {
+          aux = temp.ant;
+          temp.ant = temp.sig;
+          temp.sig = aux;
+          temp = temp.ant;
+      }
 
-
+      if (aux) {
+          this.primero = aux.ant;
+         }
 
   }
+}
  
   let lista=new ListaDoble();
   let n1=new Nodo(3);
